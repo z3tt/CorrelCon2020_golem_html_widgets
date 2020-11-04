@@ -13,43 +13,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-# correlcon
+# CorrelCon Advanced Session
 
-<!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-<!-- badges: end -->
+### Building a modularized Shiny app with the golem 📦 and html widgets
 
-The goal of correlcon is to ...
+*Session:* Data Visualization
+*Date:* November 7th 2020, 2:30PM (UTC+1)
+*Speaker:* Cédric (Computational Ecologist and Data Visualization Designer)
 
-## Installation
+In this talk, I introduce you to modularized Shiny apps and a library called {golem} that simplifiesthe process. I will also give an overview of html widgets that are useful for designing your app andallow for interactive charts and an overall nice user experience. I am going to demonstrate thepossibilities using our Shiny app from the LC Berlin that recently won the CorrelAidX challenge.  
 
-You can install the released version of correlcon from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("correlcon")
-```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-library(correlcon)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
