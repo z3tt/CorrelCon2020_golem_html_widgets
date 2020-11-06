@@ -15,18 +15,19 @@ mod_map_tmap_ui <- function(id){
       type = "text/css", 
       "div.info.legend.leaflet-control {text-align:left; } 
        div.leaflet-control-layers-expanded {text-align:left;}"),
-    pageContainer(
-      h1("An interactive map"),
-      br(),
-      shinycssloaders::withSpinner(
-        tmap::tmapOutput(ns("map"), height = 530)
-      )
+    h1("An interactive map"),
+    br(),
+    shinycssloaders::withSpinner(
+      tmap::tmapOutput(ns("map"), height = 530)
     ),
     br(), br(),
-    p("Source: Statistische Ämter des Bundes und der Länder via", tags$a(href="https://unfallatlas.statistikportal.de/_opendata2020.html", "Unfallatlas"), "• Geoportal Berlin via", tags$a(href="https://data.technologiestiftung-berlin.de/", "Technologiestiftung Berlin"))
+    p("Source: Statistische Ämter des Bundes und der Länder via", 
+      tags$a(href="https://unfallatlas.statistikportal.de/_opendata2020.html", "Unfallatlas"), 
+      "• Geoportal Berlin via", 
+      tags$a(href="https://data.technologiestiftung-berlin.de/", "Technologiestiftung Berlin"))
   )
 }
-    
+
 #' map_tmap Server Function
 #'
 #' @noRd 
@@ -56,10 +57,10 @@ mod_map_tmap_server <- function(input, output, session){
       )
   })
 }
-    
+
 ## To be copied in the UI
 # mod_map_tmap_ui("map_tmap_ui_1")
-    
+
 ## To be copied in the server
 # callModule(mod_map_tmap_server, "map_tmap_ui_1")
- 
+
