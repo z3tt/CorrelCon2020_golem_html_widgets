@@ -48,7 +48,9 @@ mod_bars_echarts_server <- function(input, output, session){
       dplyr::group_by(type) %>% 
       echarts4r::e_charts(Gemeinde_name) %>% 
       echarts4r::e_bar(accidents) %>% 
-      echarts4r::e_x_axis(axisTick = list(interval = 0), axisLabel = list(rotate = 30), nameGap = 35) %>% 
+      echarts4r::e_x_axis(axisTick = list(interval = 0), 
+                          axisLabel = list(rotate = 30), 
+                          nameGap = 35) %>% 
       echarts4r::e_grid(bottom = 100, left = 150) %>% 
       echarts4r::e_toolbox(bottom = 0) %>%
       echarts4r::e_toolbox_feature(feature = "dataZoom") %>%
