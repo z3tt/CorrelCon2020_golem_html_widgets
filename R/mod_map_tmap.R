@@ -15,15 +15,16 @@ mod_map_tmap_ui <- function(id){
       type = "text/css", 
       "div.info.legend.leaflet-control {text-align:left; } 
        div.leaflet-control-layers-expanded {text-align:left;}"),
-    pageContainer(
-      h1("An interactive map"),
-      br(),
-      shinycssloaders::withSpinner(
-        tmap::tmapOutput(ns("map"), height = 530)
-      )
+    h1("An interactive map"),
+    br(),
+    shinycssloaders::withSpinner(
+      tmap::tmapOutput(ns("map"), height = 530)
     ),
     br(), br(),
-    p("Source: Statistische Ämter des Bundes und der Länder via", tags$a(href="https://unfallatlas.statistikportal.de/_opendata2020.html", "Unfallatlas"), "• Geoportal Berlin via", tags$a(href="https://data.technologiestiftung-berlin.de/", "Technologiestiftung Berlin"))
+    p("Source: Statistische Ämter des Bundes und der Länder via", 
+      tags$a(href="https://unfallatlas.statistikportal.de/_opendata2020.html", "Unfallatlas"), 
+      "• Geoportal Berlin via", 
+      tags$a(href="https://data.technologiestiftung-berlin.de/", "Technologiestiftung Berlin"))
   )
 }
     

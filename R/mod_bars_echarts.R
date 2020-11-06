@@ -11,15 +11,14 @@
 mod_bars_echarts_ui <- function(id){
   ns <- NS(id)
   fullPage::pageContainer(
-    pageContainer(
-      h1("An interactive bar chart"),
-      br(),
-      shinycssloaders::withSpinner(
-        echarts4r::echarts4rOutput(ns("bars"), height = "50vh")
-      )
+    h1("An interactive bar chart"),
+    br(),
+    shinycssloaders::withSpinner(
+      echarts4r::echarts4rOutput(ns("bars"), height = "50vh")
     ),
     br(), br(),
-    p("Source: Statistische Ämter des Bundes und der Länder via", tags$a(href="https://unfallatlas.statistikportal.de/_opendata2020.html", "Unfallatlas"))
+    p("Source: Statistische Ämter des Bundes und der Länder via", 
+      tags$a(href="https://unfallatlas.statistikportal.de/_opendata2020.html", "Unfallatlas"))
   )
 }
     
