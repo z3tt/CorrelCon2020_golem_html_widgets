@@ -7,7 +7,7 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
-#' @import echarts4r dplyr
+#' @import fullPage echarts4r dplyr
 mod_bars_echarts_ui <- function(id){
   ns <- NS(id)
   fullPage::pageContainer(
@@ -88,8 +88,8 @@ mod_bars_echarts_server <- function(input, output, session){
     )
 
     ##### ADD VARIOUS DATA SOURCES ---------------------------------------------
-    if (input$data == "All accidents") { dat <- xberlin::accidents_sum_all }
-    if (input$data == "Bike accidents") { dat <- xberlin::accidents_sum_bikes }
+    if (input$data == "All accidents") { dat <- accidents_sum_all }
+    if (input$data == "Bike accidents") { dat <- accidents_sum_bikes }
 
     dat <- dplyr::left_join(dat, my_colors, by = "type")
     ##### END ADD VARIOUS DATA SOURCES -----------------------------------------

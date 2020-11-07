@@ -15,7 +15,13 @@ Imports:
     htmltools,
     echarts4r,
     tmap,
-    pkgload
+    dplyr,
+    sf,
+    pkgload,
+    fullPage,
+    shinycssloaders,
+    shinyWidgets,
+    rcartocolor
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

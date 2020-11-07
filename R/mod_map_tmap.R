@@ -6,7 +6,7 @@
 #'
 #' @noRd
 #'
-#' @import dplyr sf tmap
+#' @import fullPage dplyr sf tmap
 #' @importFrom shiny NS tagList
 mod_map_tmap_ui <- function(id){
   ns <- NS(id)

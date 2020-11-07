@@ -17,6 +17,9 @@
 ## Add one line by package you want to add as dependency
 usethis::use_package( "echarts4r" )
 usethis::use_package( "tmap" )
+usethis::use_package( "fullPage" )
+usethis::use_package( "shinycssloaders" )
+usethiss::use_package( "shinyWidgets" )
 
 ## Add modules ----
 ## Create a module infrastructure in R/
