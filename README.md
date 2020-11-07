@@ -20,6 +20,12 @@ overall nice user experience. I am going to demonstrate the
 possibilities using our Shiny app from the LC Berlin that recently won
 the CorrelAidX challenge.
 
+### Example App with Interactive Visualizations
+
+You can have a look at the final example application we are going to
+build on
+[shinyapps.io](https://cedric-scherer.shinyapps.io/correlcon2020_golem_html_widgets/).
+
 #### Resources
 
 **Books**
