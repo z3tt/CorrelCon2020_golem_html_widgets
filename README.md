@@ -58,6 +58,7 @@ build on
 **Packages for tables**
 
   - [{DT}](rstudio.github.io/DT)
+  - [{gt}](gt.rstudio.com)
   - [{formattable}](renkun-ken.github.io/formattable)
 
 **Packages for maps**
