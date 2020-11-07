@@ -27,6 +27,11 @@ knitr::opts_chunk$set(
 In this session, I introduce you to modularized Shiny apps and a library called {golem} that simplifies the process of developing roduction-grade applications. I will also give an overview of html widgets that are useful for designing your app and allow for interactive charts and an overall nice user experience. I am going to demonstrate the possibilities using our Shiny app from the LC Berlin that recently won the CorrelAidX challenge.  
 
 
+### Example App with Interactive Visualizations
+
+You can have a look at the final example application we are going to build on [shinyapps.io](https://cedric-scherer.shinyapps.io/correlcon2020_golem_html_widgets/).
+
+
 #### Resources
 
 **Books**
