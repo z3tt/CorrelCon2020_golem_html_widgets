@@ -4,16 +4,16 @@
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
 #'
-#' @noRd 
+#' @noRd
 #'
 #' @import dplyr sf tmap
-#' @importFrom shiny NS tagList 
+#' @importFrom shiny NS tagList
 mod_map_tmap_ui <- function(id){
   ns <- NS(id)
   fullPage::pageContainer(
     tags$style(
-      type = "text/css", 
-      "div.info.legend.leaflet-control {text-align:left; } 
+      type = "text/css",
+      "div.info.legend.leaflet-control {text-align:left; }
        div.leaflet-control-layers-expanded {text-align:left;}"),
     h1("An interactive map"),
     br(),
@@ -38,23 +38,23 @@ mod_map_tmap_ui <- function(id){
       tmap::tmapOutput(ns("map"), height = 530)
     ),
     br(), br(),
-    p("Source: Statistische Ämter des Bundes und der Länder via", 
-      tags$a(href="https://unfallatlas.statistikportal.de/_opendata2020.html", "Unfallatlas"), 
-      "• Geoportal Berlin via", 
+    p("Source: Statistische Ämter des Bundes und der Länder via",
+      tags$a(href="https://unfallatlas.statistikportal.de/_opendata2020.html", "Unfallatlas"),
+      "• Geoportal Berlin via",
       tags$a(href="https://data.technologiestiftung-berlin.de/", "Technologiestiftung Berlin"))
   )
 }
-    
+
 #' map_tmap Server Function
 #'
-#' @noRd 
+#' @noRd
 mod_map_tmap_server <- function(input, output, session){
   ns <- session$ns
-  
+
   ## correct proj version for shinyapps.io
   traffic_summary_int <- traffic_summary
-  sf::st_crs(traffic_summary_int) <- 3068 
-  
+  sf::st_crs(traffic_summary_int) <- 3068
+
   output$map <- renderTmap({
     tmap::tm_shape(traffic_summary_int, name = "Ratio Map") +
       tmap::tm_polygons(
@@ -92,10 +92,9 @@ mod_map_tmap_server <- function(input, output, session){
   })
   ##### END UPDATE MAP BASED ON INPUT ------------------------------------------
 }
-    
+
 ## To be copied in the UI
 # mod_map_tmap_ui("map_tmap_ui_1")
-    
+
 ## To be copied in the server
 # callModule(mod_map_tmap_server, "map_tmap_ui_1")
- 

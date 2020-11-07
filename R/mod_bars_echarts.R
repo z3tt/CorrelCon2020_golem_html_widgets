@@ -4,9 +4,9 @@
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
 #'
-#' @noRd 
+#' @noRd
 #'
-#' @importFrom shiny NS tagList 
+#' @importFrom shiny NS tagList
 #' @import echarts4r dplyr
 mod_bars_echarts_ui <- function(id){
   ns <- NS(id)
@@ -50,20 +50,20 @@ mod_bars_echarts_ui <- function(id){
       echarts4r::echarts4rOutput(ns("bars"), height = "50vh")
     ),
     br(), br(),
-    p("Source: Statistische Ämter des Bundes und der Länder via", 
+    p("Source: Statistische Ämter des Bundes und der Länder via",
       tags$a(href="https://unfallatlas.statistikportal.de/_opendata2020.html", "Unfallatlas"))
   )
 }
-    
+
 #' bars_echarts Server Function
 #'
-#' @noRd 
+#' @noRd
 mod_bars_echarts_server <- function(input, output, session){
   ns <- session$ns
-  
+
   ##### ADD SELECTED OUTPUT ----------------------------------------------------
   output$types_select_generated <- renderUI({
-    
+
     selectizeInput(
       ns("types_select"),
       "Choose road user",
@@ -73,40 +73,40 @@ mod_bars_echarts_server <- function(input, output, session){
     )
   })
   ##### END ADD SELECTED OUTPUT ------------------------------------------------
-  
+
   output$bars <- echarts4r::renderEcharts4r({
     # set typeface for echarts
     echarts4r::e_common(
       font_family = "Overpass",
       theme = NULL
     )
-    
+
     # var to color mapping
     my_colors <- tibble::tibble(
       type = c("Bikes", "Cars", "Motorcycles", "Pedestrians"),
       color = c("#b03a47", "#293c55", "#6ab0b8", "#e98f6f")
     )
-    
+
     ##### ADD VARIOUS DATA SOURCES ---------------------------------------------
     if (input$data == "All accidents") { dat <- xberlin::accidents_sum_all }
     if (input$data == "Bike accidents") { dat <- xberlin::accidents_sum_bikes }
-    
+
     dat <- dplyr::left_join(dat, my_colors, by = "type")
     ##### END ADD VARIOUS DATA SOURCES -----------------------------------------
-    
+
      e <- dat %>%
-      dplyr::group_by(type) %>% 
-      echarts4r::e_charts(Gemeinde_name) %>% 
+      dplyr::group_by(type) %>%
+      echarts4r::e_charts(Gemeinde_name) %>%
       #echarts4r::e_bar(accidents) %>% 
-      echarts4r::e_x_axis(axisTick = list(interval = 0), 
-                          axisLabel = list(rotate = 30), 
-                          nameGap = 35) %>% 
-      echarts4r::e_grid(bottom = 100, left = 150) %>% 
+      echarts4r::e_x_axis(axisTick = list(interval = 0),
+                          axisLabel = list(rotate = 30),
+                          nameGap = 35) %>%
+      echarts4r::e_grid(bottom = 100, left = 150) %>%
       echarts4r::e_toolbox(bottom = 0) %>%
       echarts4r::e_toolbox_feature(feature = "dataZoom") %>%
       echarts4r::e_toolbox_feature(feature = "dataView") %>%
       echarts4r::e_show_loading()
-    
+
     ##### CHANGE CHART TYPE BASED ON INPUT -------------------------------------
     if (input$chart == "Dodged bars") {
       e %>% echarts4r::e_bar(accidents)
@@ -116,10 +116,9 @@ mod_bars_echarts_server <- function(input, output, session){
     ##### END CHANGE CHART TYPE BASED ON INPUT ---------------------------------
   })
 }
-    
+
 ## To be copied in the UI
 # mod_bars_echarts_ui("bars_echarts_ui_1")
-    
+
 ## To be copied in the server
 # callModule(mod_bars_echarts_server, "bars_echarts_ui_1")
- 
