@@ -63,6 +63,7 @@ You can have a look at the final example application we are going to build on [s
 **Packages for tables**
 
 * [{DT}](rstudio.github.io/DT)
+* [{gt}](gt.rstudio.com)
 * [{formattable}](renkun-ken.github.io/formattable)
 
 **Packages for maps**
